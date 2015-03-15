@@ -1,0 +1,154 @@
+<!-- start: PAGE CONTENT -->
+<div class="row">
+  <div class="col-sm-12">
+    <div class="tabbable">
+      <ul class="nav nav-tabs tab-padding tab-space-3 tab-blue" id="myTab4">
+        <li class="active">
+          <a data-toggle="tab" href="#panel_overview">
+            Pregled
+          </a>
+        </li>
+        <li>
+          <a data-toggle="tab" href="#panel_edit_account">
+            Uredi člana
+          </a>
+        </li>
+        <li>
+          <a data-toggle="tab" href="#panel_projects">
+            Uspehi
+          </a>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div id="panel_overview" class="tab-pane fade in active">
+          <div class="row">
+            <div class="col-sm-5 col-md-4">
+              <div class="user-left">
+                <div class="center">
+                  <h4><%= @member.name %> <%= @member.surname %></h4>
+                  <div class="user-image">
+                    <%= image_tag "placeholder.jpg", size: "150x150" %>
+                  </div>
+                  <hr>
+                </div>
+                <table class="table table-condensed table-hover">
+                  <thead>
+                    <tr>
+                    <th colspan="3">Kontaktni podatki</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>tel:</td>
+                      <td><%= @member.telefon %></td>
+                    </tr>
+                    <tr>
+                      <td>email:</td>
+                      <td>
+                        <a href="">
+                          <%= @member.email %>
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>naslov:</td>
+                      <td><%= @member.street %> <%= @member.houseno %>
+                      <br><%= @member.zip %> <%= @member.town %>
+                      <br><%= @member.country %></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table class="table table-condensed table-hover">
+                  <thead>
+                    <tr>
+                    <th colspan="3">Splošne informacije</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Vrsta članstva</td>
+                      <td><%= @member.vrsta_clana %></td>
+                    </tr>
+                    <tr>
+                      <td>Funkcija</td>
+                      <td><%= @member.funkcija %></td>
+                    </tr>
+                    <tr>
+                      <td>Status</td>
+                      <td><span class="label label-sm label-info"><%= @member.status_clanstva %></span></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table class="table table-condensed table-hover">
+                  <thead>
+                    <tr>
+                    <th colspan="3">Dodatni podatki</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Rojstni dan</td>
+                      <td><%= @member.dob %></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="col-sm-7 col-md-8">
+              <div class="panel panel-white space20">
+                <div class="panel-heading">
+                  Recent Activities
+                </div>
+                <table class="table table-hover"> 
+                  <thead> 
+                      <tr>
+                        <th>Znamka</th>
+                        <th>Model</th>
+                        <th>Vrsta vozila</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                  <% @vehicles.each do |vehicle| %>
+                    <tr>
+                      <td><%= vehicle.brand %></td>
+                      <td><%= vehicle.vehicle_model %></td>
+                      <td>
+                        <% if vehicle.vehicletype == 'Osebno vozilo' %>
+                        <i class="fa fa-car"></i>
+                        <% else %>
+                        <i class="fa fa-motorcycle"></i>
+                        <% end %>
+                      </td>
+                      <td><%= link_to 'Edit', edit_member_vehicle_path(@member, @vehicle) %></td>
+                      <td></td>
+                    </tr>
+                  <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="panel_edit_account" class="tab-pane fade">
+          <form action="#" role="form" id="form">
+            <div class="row">
+              <div class="col-md-12">
+                <h3>Account Info</h3>
+                <hr>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<br>
+<%= link_to 'Edit', edit_member_path(@member) %>
+<%= link_to 'Back', members_path %>
+
+<%= link_to 'Add new car', new_member_vehicle_path(@member) %>

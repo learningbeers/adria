@@ -1,0 +1,18 @@
+<%= form_for [@member, @vehicle] do |f| %>
+
+  <div class="field">
+    <%= f.label :brand %><br>
+    <%= f.text_field :brand %>
+  </div>
+  <div class="field">
+    <%= f.label :vehicle_model %><br>
+    <%= f.text_field :vehicle_model %>
+  </div>
+  <div class="field">
+    <%= f.label :vehicletype %><br>
+    <%= f.text_field :vehicletype %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

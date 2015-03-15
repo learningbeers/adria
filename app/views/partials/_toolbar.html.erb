@@ -1,0 +1,40 @@
+<!-- start: TOOLBAR -->
+<div class="toolbar row">
+	<div class="col-sm-6 hidden-xs">
+		<div class="page-header">
+			<h1><%= @page_title %></h1>
+		</div>
+	</div>
+	<div class="col-sm-6 hidden-xs">
+		<ul class="nav navbar-right">
+			<li class="dropdown">
+				<a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" data-close-others="true" href="#">
+					<i class="fa fa-plus"></i> VNOS
+				</a>
+				<ul class="dropdown-menu dropdown-light dropdown-subview">
+					<li>
+						<%= link_to 'Vnos novega člana', new_member_path  %>
+					</li>
+				</ul>
+
+			</li>
+		</ul>
+	</div>
+</div>
+<!-- edn: TOOLBAR -->
+<!-- end: PAGE HEADER -->
+<div class="row">
+	<div class="col-md-12">
+		<ol class="breadcrumb">
+			<li>
+				<a href="#">
+					Dashboard
+				</a>
+			</li>
+			<li class="active">
+					User Profile
+			</li>
+		</ol>
+	</div>
+</div>
+<!-- end: BREADCRUMB -->

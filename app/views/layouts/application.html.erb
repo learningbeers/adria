@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="ie8" lang="en"><![endif]-->
+<!--[if IE 9]><html class="ie9" lang="en"><![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+	<!--<![endif]-->
+	<!-- start: HEAD -->
+<head>
+  <title>Adria</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+<body>
+
+
+	<div class="main-wrapper">
+	<%= render 'partials/header' %>
+		<div class="main-container inner">
+			<div class="main-content">
+				<div class="container">
+					<%= render 'partials/toolbar' %>
+						<div class="row">
+							<%= yield %>
+						</div>
+				</div>
+			</div>
+		</div>
+		<%= render 'partials/footer' %>
+	</div>
+</body>
+</html>
