@@ -1,16 +1,7 @@
 # config valid only for current version of Capistrano
 lock '3.4.0'
 
-set :application, 'adria'
 
-set :scm, :git
-set :repo_url, 'https://github.com/learningbeers/adria.git'
-
-set :deploy_to, "/var/www/my_app"
-
-set :pty, true
-
-set :format, :pretty
 
 
 # Default branch is :master
